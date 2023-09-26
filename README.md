@@ -7,6 +7,7 @@ Installation is to copy the OMVSCMD exec from this PDS into a library in
 your SYSPROC or SYSEXEC allocations.
 
 ## Description
+```
  Name:      OMVSCMD
 
  Function:  Issue a OMVS command for the passed option or prompt for a
@@ -30,4 +31,4 @@ your SYSPROC or SYSEXEC allocations.
 
             Then the user can enter:  ocmd xxx
                                  or:  ocmd  (to be prompted)
-
+```

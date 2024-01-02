@@ -26,7 +26,8 @@
   * Author:    Lionel B. Dyck                                  *
   *                                                            *
   * History:                                                   *
-  *            09/26/24 - Redo to clean up and improve         *
+  *            01/02/24 - Correct address for alloc's          *
+  *            09/26/23 - Redo to clean up and improve         *
   *                     - remove STEMEDIT requirement          *
   *            07/26/16 - Add -E option                        *
   *            07/13/16 - Enabled su support (if the user can  *
@@ -120,6 +121,7 @@ do_it:
       if length(stdout.i) = 0
       then stdout.i = ' '
     end
+    Address TSO
     'alloc f('dd') space(15,15) tr unit(vio) recfm(v b) lrecl('sl+4')' ,
       'blksize(0) new'
     'execio * diskw' dd '(finis stem stdout.'
@@ -137,6 +139,7 @@ do_it:
       if length(stderr.i) = 0
       then stderr.i = ' '
     end
+    Address TSO
     'alloc f('dd') space(15,15) tr unit(vio) recfm(v b) lrecl('se+4')' ,
       'blksize(0) new'
     'execio * diskw' dd '(finis stem stderr.'

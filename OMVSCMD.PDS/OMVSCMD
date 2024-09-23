@@ -26,6 +26,7 @@
   * Author:    Lionel B. Dyck                                  *
   *                                                            *
   * History:                                                   *
+  *            09/23/24 - Provide longer command via popup     *
   *            01/02/24 - Correct address for alloc's          *
   *            09/26/23 - Redo to clean up and improve         *
   *                     - remove STEMEDIT requirement          *
@@ -40,7 +41,7 @@
   /* ----------------------- *
   * Get the passed omvscmd *
   * ----------------------- */
-  parse arg omvscmd
+  parse arg omvscmd omvscmd1 omvscmd2
 
   /* ------------------------------------ *
   * Translate the omvscmd to lower case *
@@ -87,6 +88,7 @@ do_it:
     cmd = omvscmd
     su = ''
   end
+  cmd = cmd omvscmd1 omvscmd2
 
   /* ---------------------------- *
   | Get the users Home directory |
@@ -458,12 +460,14 @@ do_it:
    @ type( input) intens(high) caps(off) just(left ) hilite(uscore)
    $ type(text) intens(high) color(blue) hilite(reverse)
    ^ type(output) intens(low) caps(off)  color(blue)
-)Body window(72,6) expand(\\)
+)Body window(72,8) expand(\\)
 %-\-\-$OMVS Command Prompt%-\-\-
 %Command ===>_zcmd
 +
 +Enter/Verify OMVS Command
 %===>@omvscmd                                                        +
+%===>@omvscmd1                                                       +
+%===>@omvscmd2                                                       +
 +
 )Init
 )Proc
